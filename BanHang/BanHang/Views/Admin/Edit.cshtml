@@ -1,0 +1,52 @@
+﻿@model BanHang.Models.SanPham
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+    <form action="Edit" method="post">
+        <input type="hidden" name="ID" value="@Model.ID" />
+        <label> Tên sản phẩm :</label> <input type="text" name="TenSanPham" value="@Model.TenSanPham" required />
+        <label> Xuất sứ :</label> <input type="text" name="XuatSu" value="@Model.XuatSu" required /><br />
+        <label> Đơn giá :</label> <input type="number" name="DonGia" value="@Model.DonGia" required /><br />
+        <label>Danh mục:</label>
+            <select name="MaDanhMuc">
+                <option value="@Model.MaDanhMuc"> @Model.TenDanhMuc()</option>
+                @foreach (var item in ViewBag.listdanhmuc)
+                {
+                    if (item.ID != @Model.MaDanhMuc)
+                    {
+                        <option value="@item.ID"> @item.TenDanhMuc</option>
+                    }
+                }
+            </select><br/>
+        <label>Năm Sản xuất: </label>
+        <select name="NamSanXuat">
+            <option value="@Model.NamSanXuat"> @Model.NamSanXuat</option>
+            @for (int i = 1000; i < DateTime.Now.Year; i++)
+            {
+                if (@Model.NamSanXuat != @i)
+                {
+
+                    <option value="@i"> @i</option>
+                }
+
+
+            }
+        </select><br />
+
+
+
+    <input type="submit" value="Lưu" />
+
+    </form>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

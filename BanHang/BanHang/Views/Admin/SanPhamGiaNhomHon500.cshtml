@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BanHang.Models.SanPham>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        th {
+            border: solid 1px;
+        }
+
+        td {
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Index", "Index")
+    </p>
+    <center>
+        <h1>Sản phẩm có giá nhỏ hơn 500.000</h1>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenSanPham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.XuatSu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NamSanXuat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DonGia)
+                </th>
+                <th>
+                    Tên Danh Mục
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenSanPham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.XuatSu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NamSanXuat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonGia)
+                    </td>
+                    <td>
+                        @item.TenDanhMuc()
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </center>
+
+</body>
+</html>

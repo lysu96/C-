@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BanHang.Models.SanPham>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>timkiem</title>
+    <style>
+        th {
+            border: solid 1px;
+        }
+
+        td {
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh mục tìm kiếm: @ViewBag.ten</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSanPham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XuatSu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamSanXuat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                Tên Danh Mục
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XuatSu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamSanXuat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @item.TenDanhMuc();
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<thi.Models.Khachhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Them moi", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_kh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_kh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diachi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tt_them)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ma_kh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_kh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tt_them)
+        </td>
+        <td>
+            @Html.ActionLink("Sua", "Edit", new { id=item.ID }) 
+
+        </td>
+    </tr>
+}
+
+</table>

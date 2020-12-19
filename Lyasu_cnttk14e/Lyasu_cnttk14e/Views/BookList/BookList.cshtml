@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Lyasu_cnttk14e.Models.Book>
+
+@{
+    ViewData["Title"] = "BookList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookList</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgeCover)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.ImgeCover)" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdBook }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdBook }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdBook })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model Lyasu_cnttk14e.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdBook" class="control-label"></label>
+                <input asp-for="IdBook" class="form-control" value=" @ViewData["IdBook"]" />
+                <span asp-validation-for="IdBook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" value="@ViewData["BookName"]" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" value="@ViewData["Author"]" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgeCover" class="control-label"></label>
+                <input asp-for="ImgeCover" class="form-control" value="@ViewData["ImgeCover"]"/>
+                <span asp-validation-for="ImgeCover" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="BookList">Back to List</a>
+</div>
+

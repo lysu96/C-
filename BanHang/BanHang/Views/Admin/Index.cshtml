@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BanHang.Models.SanPham>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        th{
+            border: solid 1px;
+        }
+         td{
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    
+    <table class="table">
+        <tr>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Xuất sứ
+            </th>
+            <th>
+                Năm sản xuất 
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Tên Danh Mục
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XuatSu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamSanXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @item.TenDanhMuc()
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) 
+            </td>
+        </tr>
+    }
+    
+    </table>
+
+    <a href="/Admin/SanPhamGiaNhomHon500"> Các sản phẩm có giá nhỏ hơn 500 </a><br />
+    <br /><br /><br />
+
+    <center>
+        <form method="post" action="../Admin/timkiem">
+
+            <label>Tên cần tìm: </label><input type="text" name="ten" class="form-control" /><br />
+            <input type="submit" value="Tìm kiếm" class="btn-group" />
+        </form>
+    </center>
+</body>
+</html>
